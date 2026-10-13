@@ -1,152 +1,250 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Туториал · Бесплатный доступ к ИИ · Gashihhhh</title>
-<meta name="theme-color" content="#0a0a0f">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Доп. Гайд №2 · Как обойти лимиты · Gashihhhh</title>
+<meta name="theme-color" content="#070b14">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#08080d;--card:#12121a;--card-hover:#1a1a24;--border:#252533;--text:#f0f0f5;--muted:#8888a0;--accent:#a78bfa;--accent2:#67e8f9;--success:#34d399;--gradient:linear-gradient(135deg,#a78bfa 0%,#67e8f9 100%);--radius:16px}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-.bg{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 70% 40% at 50% -10%,rgba(167,139,250,.15),transparent),radial-gradient(ellipse 50% 30% at 90% 90%,rgba(103,232,249,.08),transparent)}
-.wrap{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:48px 20px 80px}
-header{text-align:center;margin-bottom:36px}
-.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);color:var(--accent);font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px}
-h1{font-size:clamp(26px,5.5vw,38px);font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-bottom:10px}
-h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lead{color:var(--muted);font-size:15px;max-width:440px;margin:0 auto 20px}
-.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.tag{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-size:12.5px;font-weight:600}
-.progress{position:sticky;top:12px;z-index:10;display:flex;align-items:center;gap:12px;background:rgba(18,18,26,.92);border:1px solid var(--border);border-radius:14px;padding:12px 16px;margin-bottom:32px;backdrop-filter:blur(16px)}
-.track{flex:1;height:5px;background:var(--border);border-radius:99px;overflow:hidden}
-.fill{height:100%;width:0;background:var(--gradient);border-radius:99px;transition:width .35s ease}
-.count{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
-.reset{background:transparent;border:1px solid var(--border);color:var(--muted);font-size:12px;font-weight:600;padding:5px 11px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all .2s}
-.reset:hover{border-color:var(--accent);color:var(--accent)}
-.section{margin-bottom:28px}
-.section-title{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:10px}
-.section-title::before{content:'';width:3px;height:14px;background:var(--gradient);border-radius:2px}
-.steps{list-style:none;display:grid;gap:10px}
-.step{position:relative}
-.step input{position:absolute;opacity:0;width:0;height:0}
-.step label{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;cursor:pointer;transition:all .2s ease}
-.step label:hover{background:var(--card-hover);border-color:rgba(167,139,250,.35)}
-.step input:checked+label{border-color:rgba(167,139,250,.5);background:rgba(167,139,250,.07)}
-.num{flex-shrink:0;width:28px;height:28px;border-radius:9px;background:rgba(167,139,250,.12);color:var(--accent);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.step input:checked+label .num{background:var(--gradient);color:#0a0a0f}
-.step p{margin:0;font-size:14.5px;color:var(--text);padding-top:3px}
-.step a{color:var(--accent2);text-decoration:none;font-weight:500}
-.step a:hover{text-decoration:underline}
-.hl{background:rgba(167,139,250,.15);color:var(--accent);padding:1px 7px;border-radius:5px;font-weight:600;font-size:13.5px}
-.done{text-align:center;font-weight:700;font-size:17px;color:var(--success);margin:28px 0 20px;opacity:0;transform:translateY(10px);transition:all .4s ease;pointer-events:none}
-.done.show{opacity:1;transform:none;pointer-events:auto}
-.note{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;font-size:13.5px;color:var(--muted);margin-bottom:28px}
-.thanks{text-align:center;background:linear-gradient(145deg,rgba(167,139,250,.1),rgba(103,232,249,.06));border:1px solid rgba(167,139,250,.25);border-radius:20px;padding:28px 24px;margin-bottom:32px}
-.seller{display:inline-block;background:rgba(167,139,250,.15);border:1px solid rgba(167,139,250,.3);color:var(--accent);font-size:13px;font-weight:700;padding:5px 14px;border-radius:100px;margin-bottom:12px}
-.thanks h3{font-size:20px;font-weight:700;margin-bottom:6px}
-.thanks p{color:var(--muted);font-size:14px}
-footer{text-align:center;font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid var(--border)}
-@media(max-width:480px){.wrap{padding:32px 16px 60px}h1{font-size:24px}}
+:root {
+  --bg: #070b14;
+  --card: #0f1624;
+  --card-hover: #151e30;
+  --border: #1c2740;
+  --text: #eef2ff;
+  --muted: #8b9bb8;
+  --accent: #818cf8;
+  --accent2: #22d3ee;
+  --accent3: #c084fc;
+  --success: #34d399;
+  --gradient: linear-gradient(135deg, #818cf8 0%, #22d3ee 50%, #c084fc 100%);
+  --radius: 18px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+.bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 0%, rgba(129,140,248,.16), transparent),
+    radial-gradient(ellipse 50% 35% at 90% 100%, rgba(34,211,238,.1), transparent);
+}
+.wrap {
+  position: relative; z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 20px 72px;
+}
+header { text-align: center; margin-bottom: 40px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(192,132,252,.12);
+  border: 1px solid rgba(192,132,252,.28);
+  color: var(--accent3);
+  font-size: 12.5px; font-weight: 600;
+  padding: 6px 14px; border-radius: 100px;
+  margin-bottom: 18px;
+}
+h1 {
+  font-size: clamp(26px, 5.5vw, 36px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.lead {
+  color: var(--muted);
+  font-size: 15.5px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 22px 20px;
+  margin-bottom: 14px;
+  transition: all .25s ease;
+}
+.card:hover {
+  background: var(--card-hover);
+  border-color: rgba(129,140,248,.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.num {
+  width: 36px; height: 36px;
+  border-radius: 11px;
+  background: var(--gradient);
+  color: #0b0f19;
+  font-weight: 800;
+  font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.card h2 {
+  font-size: 17px;
+  font-weight: 700;
+}
+.card p {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin-bottom: 8px;
+}
+.card p:last-child { margin-bottom: 0; }
+.card ul {
+  list-style: none;
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+.card li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: var(--text);
+}
+.card li::before {
+  content: '→';
+  color: var(--accent2);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.hl {
+  color: var(--accent2);
+  font-weight: 600;
+}
+.models {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.model {
+  background: rgba(129,140,248,.12);
+  border: 1px solid rgba(129,140,248,.25);
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
+.thanks {
+  text-align: center;
+  margin-top: 36px;
+  background: linear-gradient(145deg, rgba(129,140,248,.1), rgba(192,132,252,.08));
+  border: 1px solid rgba(129,140,248,.25);
+  border-radius: 20px;
+  padding: 28px 24px;
+}
+.seller {
+  display: inline-block;
+  background: rgba(192,132,252,.15);
+  border: 1px solid rgba(192,132,252,.3);
+  color: var(--accent3);
+  font-size: 13px; font-weight: 700;
+  padding: 5px 14px; border-radius: 100px;
+  margin-bottom: 12px;
+}
+.thanks h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.thanks p {
+  color: var(--muted);
+  font-size: 14px;
+}
+footer {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 12px;
+  color: var(--muted);
+}
 </style>
 </head>
 <body>
 <div class="bg"></div>
 <div class="wrap">
   <header>
-    <div class="badge">Бесплатный доступ</div>
-    <h1>Туториал на доступ<br>к <em>10+ ИИ</em></h1>
-    <p class="lead">Инструкция по активации пробного периода и работе с ИИ-моделями в Notion</p>
-    <div class="tags">
-      <span class="tag">GPT</span>
-      <span class="tag">Claude</span>
-      <span class="tag">Gemini</span>
-      <span class="tag">+ другие</span>
-    </div>
+    <div class="badge">🎁 Доп. Гайд №2</div>
+    <h1>Как обойти лимиты<br>бесплатных нейросетей</h1>
+    <p class="lead">Актуальные способы на октябрь 2026</p>
   </header>
 
-  <div class="progress">
-    <div class="track"><div class="fill" id="fill"></div></div>
-    <span class="count" id="count">0 / 8</span>
-    <button class="reset" id="reset" type="button">Сброс</button>
+  <div class="card">
+    <div class="card-head">
+      <div class="num">1</div>
+      <h2>Несколько аккаунтов</h2>
+    </div>
+    <p>Создавай аккаунты на разные почты (Gmail + Proton + Outlook).</p>
+    <p>Можно использовать временные почты: <span class="hl">temp-mail.org</span>, <span class="hl">10minutemail</span>.</p>
   </div>
 
-  <div class="section">
-    <div class="section-title">Регистрация</div>
-    <ul class="steps">
-      <li class="step">
-        <input type="checkbox" id="s1">
-        <label for="s1"><span class="num">1</span><p>Перейдите на <a href="https://www.notion.so" target="_blank" rel="noopener">официальный сайт Notion</a> и создайте аккаунт.</p></label>
-      </li>
-      <li class="step">
-        <input type="checkbox" id="s2">
-        <label for="s2"><span class="num">2</span><p>При настройке рабочего пространства выберите <span class="hl">For work</span>.</p></label>
-      </li>
+  <div class="card">
+    <div class="card-head">
+      <div class="num">2</div>
+      <h2>Смена браузера / инкогнито</h2>
+    </div>
+    <p>Лимиты часто привязаны к устройству + IP.</p>
+    <p>Используй разные браузеры + очистку cookies.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="num">3</div>
+      <h2>Агрегаторы с бесплатными кредитами</h2>
+    </div>
+    <p>Актуально на октябрь 2026:</p>
+    <ul>
+      <li><span class="hl">Type.com</span> — до $100 стартовых кредитов</li>
+      <li><span class="hl">TokenLayer</span> — $20 бесплатно</li>
+      <li><span class="hl">OmniRush.ai</span> — 5 млн токенов в день</li>
+      <li><span class="hl">OpenRouter</span> — модели с пометкой :free</li>
     </ul>
   </div>
 
-  <div class="section">
-    <div class="section-title">Активация пробного периода</div>
-    <ul class="steps">
-      <li class="step">
-        <input type="checkbox" id="s3">
-        <label for="s3"><span class="num">3</span><p>В левом нижнем углу нажмите на <strong>шестерёнку</strong> (Settings) рядом с вашим аккаунтом.</p></label>
-      </li>
-      <li class="step">
-        <input type="checkbox" id="s4">
-        <label for="s4"><span class="num">4</span><p>В меню выберите <span class="hl">Upgrade plan</span> / «Обновить план».</p></label>
-      </li>
-      <li class="step">
-        <input type="checkbox" id="s5">
-        <label for="s5"><span class="num">5</span><p>На экране выбора плана нажмите <span class="hl">Попробовать бесплатно 30 дней</span> у тарифа <strong>Business</strong>.</p></label>
-      </li>
-      <li class="step">
-        <input type="checkbox" id="s6">
-        <label for="s6"><span class="num">6</span><p>Завершите активацию пробного периода (карта обычно не требуется на старте).</p></label>
-      </li>
-    </ul>
+  <div class="card">
+    <div class="card-head">
+      <div class="num">4</div>
+      <h2>Локальные модели</h2>
+    </div>
+    <p>Полностью бесплатно и без лимитов.</p>
+    <p><span class="hl">Ollama</span> + <span class="hl">LM Studio</span></p>
+    <div class="models">
+      <span class="model">Qwen3</span>
+      <span class="model">Llama 4</span>
+      <span class="model">DeepSeek-R1</span>
+      <span class="model">GLM-5</span>
+    </div>
   </div>
-
-  <div class="section">
-    <div class="section-title">Работа с ИИ</div>
-    <ul class="steps">
-      <li class="step">
-        <input type="checkbox" id="s7">
-        <label for="s7"><span class="num">7</span><p>Откройте поле <span class="hl">Ask Notion AI...</span> на главном экране и выберите модель (GPT, Claude, Gemini и др.).</p></label>
-      </li>
-      <li class="step">
-        <input type="checkbox" id="s8">
-        <label for="s8"><span class="num">8</span><p>Введите запрос и отправьте. Можно пользоваться ИИ прямо в Notion.</p></label>
-      </li>
-    </ul>
-  </div>
-
-  <p class="done" id="done">✓ Готово — можно пользоваться ИИ в Notion</p>
-
-  <div class="note">После настройки доступны ИИ-функции для текстов, заметок, документов и идей. Модели и лимиты зависят от тарифа и конфигурации аккаунта.</div>
 
   <div class="thanks">
     <div class="seller">Gashihhhh</div>
     <h3>Спасибо за покупку!</h3>
-    <p>Подтвердите получение товара, когда убедитесь, что всё работает.</p>
+    <p>Это подарок за отзыв · Используй с умом</p>
   </div>
 
-  <footer>Справочный материал · Не связан с Notion · Продавец Gashihhhh</footer>
+  <footer>Актуальная информация · Октябрь 2026</footer>
 </div>
-
-<script>
-(function(){
-  var boxes=[].slice.call(document.querySelectorAll('.step input'));
-  var fill=document.getElementById('fill'),count=document.getElementById('count'),done=document.getElementById('done');
-  var KEY='gashihhhh-notion-v3';
-  function load(){try{var v=JSON.parse(localStorage.getItem(KEY)||'[]');boxes.forEach(function(b){b.checked=v.indexOf(b.id)>-1});}catch(e){}}
-  function save(){try{localStorage.setItem(KEY,JSON.stringify(boxes.filter(function(b){return b.checked}).map(function(b){return b.id})));}catch(e){}}
-  function render(){var n=boxes.filter(function(b){return b.checked}).length;fill.style.width=(n/boxes.length*100)+'%';count.textContent=n+' / '+boxes.length;done.classList.toggle('show',n===boxes.length);}
-  boxes.forEach(function(b){b.addEventListener('change',function(){save();render();});});
-  document.getElementById('reset').addEventListener('click',function(){boxes.forEach(function(b){b.checked=false});save();render();});
-  load();render();
-})();
-</script>
 </body>
 </html>
