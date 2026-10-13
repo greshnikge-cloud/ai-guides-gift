@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доп. Гайды · Бесплатные нейросети 2026</title>
+  <meta name="description" content="Актуальные бесплатные нейросети, обход лимитов, лучшие промпты и быстрый старт. Подарок за отзыв.">
+  <meta name="theme-color" content="#0b0f19">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-card: #0f1624;
+      --bg-card-hover: #151e30;
+      --border: #1c2740;
+      --text: #eef2ff;
+      --text-muted: #8b9bb8;
+      --accent: #818cf8;
+      --accent-2: #22d3ee;
+      --accent-3: #c084fc;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --gradient: linear-gradient(135deg, #818cf8 0%, #22d3ee 50%, #c084fc 100%);
+      --radius: 18px;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-glow::before {
+      content: '';
+      position: absolute;
+      top: -25%;
+      left: -15%;
+      width: 55%;
+      height: 55%;
+      background: radial-gradient(circle, rgba(129, 140, 248, 0.18) 0%, transparent 70%);
+      animation: float 22s ease-in-out infinite;
+    }
+    .bg-glow::after {
+      content: '';
+      position: absolute;
+      bottom: -25%;
+      right: -15%;
+      width: 50%;
+      height: 50%;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.14) 0%, transparent 70%);
+      animation: float 28s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -35px) scale(1.05); }
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 64px 0 36px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(129, 140, 248, 0.12);
+      border: 1px solid rgba(129, 140, 248, 0.28);
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+      letter-spacing: 0.2px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5.5vw, 46px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 28px;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 20px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: #0b0f19;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(129, 140, 248, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: all 0.2s ease;
+    }
+    nav a:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+    }
+
+    section {
+      margin-bottom: 64px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .section-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+      color: #0b0f19;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 14px;
+      transition: all 0.25s ease;
+    }
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(129, 140, 248, 0.4);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      -webkit-overflow-scrolling: touch;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      min-width: 640px;
+    }
+    th {
+      text-align: left;
+      padding: 14px 16px;
+      background: rgba(129, 140, 248, 0.08);
+      color: var(--accent-2);
+      font-weight: 600;
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(129, 140, 248, 0.04); }
+
+    .name-cell {
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+    .tag-yes {
+      background: rgba(52, 211, 153, 0.14);
+      color: var(--success);
+    }
+
+    .tips-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    .tips-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: all 0.2s ease;
+    }
+    .tips-list li:hover {
+      border-color: rgba(129, 140, 248, 0.4);
+      background: var(--bg-card-hover);
+    }
+    .tip-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: rgba(129, 140, 248, 0.18);
+      color: var(--accent-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .tip-content strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15.5px;
+    }
+    .tip-content p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .prompt-block {
+      background: #0a0f1a;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .prompt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(129, 140, 248, 0.08);
+      border-bottom: 1px solid var(--border);
+    }
+    .prompt-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-2);
+    }
+    .copy-btn {
+      background: rgba(129, 140, 248, 0.18);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 13px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .copy-btn:hover { background: rgba(129, 140, 248, 0.32); }
+    .copy-btn.copied {
+      background: rgba(52, 211, 153, 0.18);
+      border-color: rgba(52, 211, 153, 0.4);
+      color: var(--success);
+    }
+    pre {
+      padding: 16px 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #c5d0e6;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+    .step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 18px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+    .step:hover {
+      border-color: rgba(129, 140, 248, 0.5);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .step-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin: 0 auto 14px;
+    }
+    .step h3 {
+      font-size: 15.5px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .step p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .step a {
+      color: var(--accent-2);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .step a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 40px 0 56px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+    .gift {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(192, 132, 252, 0.12);
+      border: 1px solid rgba(192, 132, 252, 0.25);
+      color: var(--accent-3);
+      padding: 9px 18px;
+      border-radius: 100px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow);
+      z-index: 100;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 40px 0 28px; }
+      .section-title { font-size: 19px; }
+      th, td { padding: 11px 12px; font-size: 13px; }
+      .header-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <div class="container">
+    <header>
+      <div class="badge">🎁 Подарок за отзыв · Октябрь 2026</div>
+      <h1>Дополнительные гайды<br>по бесплатным нейросетям</h1>
+      <p class="subtitle">Актуальные сервисы, обход лимитов, готовые промпты и быстрый старт — всё в одном месте</p>
+
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="downloadGuides()">
+          ⬇️ Скачать все гайды (.txt)
+        </button>
+        <a class="btn btn-secondary" href="#start">🚀 Быстрый старт</a>
+      </div>
+
+      <nav>
+        <a href="#list">Список сервисов</a>
+        <a href="#limits">Обход лимитов</a>
+        <a href="#prompts">Промпты</a>
+        <a href="#start">Быстрый старт</a>
+      </nav>
+    </header>
+
+    <section id="list">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <h2 class="section-title">Актуальные бесплатные нейросети</h2>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Нейросеть</th>
+              <th>Что даёт бесплатно</th>
+              <th>Карта</th>
+              <th>Особенности</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="name-cell">ChatGPT Free</td>
+              <td>GPT-5.6 Luna, безлимитный текст</td>
+              <td><span class="tag tag-yes">Не нужна</span></td>
+              <td>Лучший баланс. Есть Think-режим</td>
+            </tr>
+            <tr>
+              <td class="name-cell">Claude Free</td>
+              <td>Claude Sonnet 5 / Haiku</td>
+              <td><span class="tag tag-yes">Не нужна</span></td>
+              <td>Лучше всех пишет и анализирует документы</td>
+            </tr>
+            <tr>
+              <td class="name-cell">Gemini Free</td>
+              <td>Gemini 3.6 Flash + картинки + Deep Research</td>
+              <td><span class="tag tag-yes">Не нужна</span></td>
+              <td>Очень щедрый, работает из РФ</td>
+            </tr>
+            <tr>
+              <td class="name-cell">DeepSeek</td>
+              <td>V4-Pro / Flash, почти безлимит</td>
+              <td><span class="tag tag-yes">Не нужна</span></td>
+              <td>Отлично думает и пишет код</td>
+            </tr>
+            <tr>
+              <td class="name-cell">Qwen Chat</td>
+              <td>Qwen 3.7 Max</td>
+              <td><span class="tag tag-yes">Не нужна</span></td>
+              <td>Работает без VPN из России</td>
+            </tr>
+            <tr>
+              <td class="name-cell">Grok (xAI)</td>
+              <td>Актуальная модель</td>
+              <td><span class="tag tag-yes">Не нужна</span></td>
+              <td>Хорошо шутит и знает свежие данные</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top: 18px;">
+        <strong style="color: var(--accent-2);">Быстрый совет:</strong>
+        <p style="margin-top: 8px; color: var(--text-muted); font-size: 14.5px;">
+          Для текстов и документов → <strong style="color: var(--text);">Claude</strong> &nbsp;·&nbsp;
+          Для длинных диалогов → <strong style="color: var(--text);">ChatGPT</strong> &nbsp;·&nbsp;
+          Для картинок + поиск → <strong style="color: var(--text);">Gemini</strong> &nbsp;·&nbsp;
+          Для кода и математики → <strong style="color: var(--text);">DeepSeek</strong>
+        </p>
+      </div>
+    </section>
+
+    <section id="limits">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <h2 class="section-title">Как обойти лимиты бесплатных нейросетей</h2>
+      </div>
+
+      <ul class="tips-list">
+        <li>
+          <div class="tip-num">1</div>
+          <div class="tip-content">
+            <strong>Несколько аккаунтов</strong>
+            <p>Создавай аккаунты на разные почты (Gmail + Proton + Outlook). Можно использовать временные почты (temp-mail.org, 10minutemail).</p>
+          </div>
+        </li>
+        <li>
+          <div class="tip-num">2</div>
+          <div class="tip-content">
+            <strong>Смена браузера / инкогнито</strong>
+            <p>Лимиты часто привязаны к устройству + IP. Используй разные браузеры + очистку cookies.</p>
+          </div>
+        </li>
+        <li>
+          <div class="tip-num">3</div>
+          <div class="tip-content">
+            <strong>Агрегаторы с бесплатными кредитами</strong>
+            <p>Type.com (до $100), TokenLayer ($20), OmniRush.ai (5 млн токенов/день), OpenRouter (модели с пометкой :free).</p>
+          </div>
+        </li>
+        <li>
+          <div class="tip-num">4</div>
+          <div class="tip-content">
+            <strong>Локальные модели (полностью бесплатно)</strong>
+            <p>Ollama + LM Studio. Рекомендуемые модели: Qwen3, Llama 4, DeepSeek-R1, GLM-5. Работают без интернета и лимитов.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="prompts">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <h2 class="section-title">Лучшие промпты</h2>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-header">
+          <span class="prompt-title">Универсальный шаблон</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        </div>
+        <pre>Ты — эксперт в [тема]. 
+Отвечай подробно, структурировано, с примерами. 
+Если информации не хватает — задай уточняющие вопросы.
+Формат ответа:
+1. Краткий вывод
+2. Подробное объяснение
+3. Практические шаги
+4. Возможные ошибки</pre>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-header">
+          <span class="prompt-title">Для написания текстов</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        </div>
+        <pre>Напиши [тип текста] на тему «…».
+Стиль: [деловой / живой / экспертный].
+Длина: [N] слов.
+Структура: заголовок + 3–5 абзацев + вывод.
+Сделай текст естественным, без воды.</pre>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-header">
+          <span class="prompt-title">Для анализа документов</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        </div>
+        <pre>Проанализируй этот текст/документ.
+Выдели:
+- Главную мысль
+- Ключевые аргументы
+- Слабые места
+- Что можно улучшить</pre>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-header">
+          <span class="prompt-title">Для кода</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">Копировать</button>
+        </div>
+        <pre>Напиши [язык] код, который делает [задача].
+Требования:
+- Чистый и понятный код
+- Комментарии на русском
+- Обработка ошибок
+- Пример использования</pre>
+      </div>
+    </section>
+
+    <section id="start">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <h2 class="section-title">Быстрый старт — что открыть прямо сейчас</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">🟣</div>
+          <h3>Claude</h3>
+          <p><a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a><br>Регистрация без карты</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🔵</div>
+          <h3>Gemini</h3>
+          <p><a href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a><br>Через Google-аккаунт</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🟢</div>
+          <h3>DeepSeek</h3>
+          <p><a href="https://chat.deepseek.com" target="_blank" rel="noopener">chat.deepseek.com</a><br>Почти безлимит</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">⚪</div>
+          <h3>ChatGPT</h3>
+          <p><a href="https://chat.openai.com" target="_blank" rel="noopener">chat.openai.com</a><br>Второй аккаунт на другой почте</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="gift">🎁 Это подарок за отзыв</div>
+      <p>Актуальная информация на октябрь 2026 · Используй с умом</p>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">Скопировано!</div>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    sections.forEach(s => observer.observe(s));
+
+    function copyPrompt(btn) {
+      const pre = btn.closest('.prompt-block').querySelector('pre');
+      const text = pre.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Скопировано!';
+        btn.classList.add('copied');
+        showToast('Промпт скопирован');
+        setTimeout(() => {
+          btn.textContent = 'Копировать';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        const range = document.createRange();
+        range.selectNode(pre);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        btn.textContent = 'Скопировано!';
+        btn.classList.add('copied');
+        showToast('Промпт скопирован');
+        setTimeout(() => {
+          btn.textContent = 'Копировать';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    function downloadGuides() {
+      const content = `ДОПОЛНИТЕЛЬНЫЕ ГАЙДЫ ПО БЕСПЛАТНЫМ НЕЙРОСЕТЯМ\nПодарок за отзыв · Октябрь 2026\n========================================\n\n1. АКТУАЛЬНЫЕ БЕСПЛАТНЫЕ НЕЙРОСЕТИ\n---------------------------------\n\nChatGPT Free\n• GPT-5.6 Luna, безлимитный текст\n• Карта не нужна\n• Лучший баланс. Есть Think-режим\n\nClaude Free\n• Claude Sonnet 5 / Haiku\n• Карта не нужна\n• Лучше всех пишет и анализирует документы\n\nGemini Free\n• Gemini 3.6 Flash + картинки + Deep Research\n• Карта не нужна\n• Очень щедрый, работает из РФ\n\nDeepSeek\n• V4-Pro / Flash, почти безлимит\n• Карта не нужна\n• Отлично думает и пишет код\n\nQwen Chat\n• Qwen 3.7 Max\n• Карта не нужна\n• Работает без VPN из России\n\nGrok (xAI)\n• Актуальная модель\n• Карта не нужна\n• Хорошо шутит и знает свежие данные\n\nБЫСТРЫЙ СОВЕТ:\nТексты и документы → Claude\nДлинные диалоги → ChatGPT\nКартинки + поиск → Gemini\nКод и математика → DeepSeek\n\n\n2. КАК ОБОЙТИ ЛИМИТЫ\n--------------------\n\n1. Несколько аккаунтов\n   Создавай аккаунты на разные почты (Gmail + Proton + Outlook).\n   Можно использовать временные почты (temp-mail.org, 10minutemail).\n\n2. Смена браузера / инкогнито\n   Лимиты часто привязаны к устройству + IP.\n   Используй разные браузеры + очистку cookies.\n\n3. Агрегаторы с бесплатными кредитами\n   Type.com (до $100)\n   TokenLayer ($20)\n   OmniRush.ai (5 млн токенов/день)\n   OpenRouter (модели с пометкой :free)\n\n4. Локальные модели (полностью бесплатно)\n   Ollama + LM Studio\n   Рекомендуемые модели: Qwen3, Llama 4, DeepSeek-R1, GLM-5\n   Работают без интернета и лимитов.\n\n\n3. ЛУЧШИЕ ПРОМПТЫ\n-----------------\n\nУНИВЕРСАЛЬНЫЙ ШАБЛОН:\nТы — эксперт в [тема]. \nОтвечай подробно, структурировано, с примерами. \nЕсли информации не хватает — задай уточняющие вопросы.\nФормат ответа:\n1. Краткий вывод\n2. Подробное объяснение\n3. Практические шаги\n4. Возможные ошибки\n\nДЛЯ НАПИСАНИЯ ТЕКСТОВ:\nНапиши [тип текста] на тему «…».\nСтиль: [деловой / живой / экспертный].\nДлина: [N] слов.\nСтруктура: заголовок + 3–5 абзацев + вывод.\nСделай текст естественным, без воды.\n\nДЛЯ АНАЛИЗА ДОКУМЕНТОВ:\nПроанализируй этот текст/документ.\nВыдели:\n- Главную мысль\n- Ключевые аргументы\n- Слабые места\n- Что можно улучшить\n\nДЛЯ КОДА:\nНапиши [язык] код, который делает [задача].\nТребования:\n- Чистый и понятный код\n- Комментарии на русском\n- Обработка ошибок\n- Пример использования\n\n\n4. БЫСТРЫЙ СТАРТ\n----------------\n\n1. Claude      → https://claude.ai\n2. Gemini      → https://gemini.google.com\n3. DeepSeek    → https://chat.deepseek.com\n4. ChatGPT     → https://chat.openai.com\n\n========================================\nЭто подарок за отзыв\nАктуальная информация на октябрь 2026\n`;
+
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Доп_Гайды_Нейросети_2026.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Файл скачан');
+    }
+  </script>
+</body>
+</html>
