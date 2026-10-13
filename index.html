@@ -3,223 +3,452 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Туториал на бесплатный доступ к 10+ ИИ | Gashihhhh</title>
+<title>Бесплатный доступ к 10+ ИИ · Gashihhhh</title>
+<meta name="theme-color" content="#0a0a0f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-:root{
-  box-sizing:border-box;
-  --bg:#0f1419;
-  --surface:#1a2332;
-  --surface2:#243044;
-  --ink:#e8eef7;
-  --muted:#8b9bb4;
-  --accent:#22c55e;
-  --accent2:#16a34a;
-  --accent-ink:#052e16;
-  --mark:#a3e635;
-  --line:#2d3a4f;
-  --glow:rgba(34,197,94,.18);
-  --radius:14px;
-}
-html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-*,*::before,*::after{box-sizing:inherit}
-body{
-  margin:0;min-height:100%;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:Manrope,system-ui,-apple-system,sans-serif;
-  font-size:16.5px;line-height:1.65;
-  overflow-x:hidden;
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34,197,94,.12), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(34,197,94,.06), transparent);
-}
-main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:48px 20px 88px}
-
-.hero{padding:12px 0 36px;text-align:center}
-.badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);
-  color:var(--accent);font-size:13px;font-weight:600;
-  padding:5px 12px;border-radius:999px;margin-bottom:18px;
-}
-h1{
-  font-family:"Space Grotesk",sans-serif;
-  font-weight:700;font-size:clamp(26px,5.5vw,40px);
-  line-height:1.2;letter-spacing:-.03em;margin:0 0 14px;
-}
-h1 span{color:var(--accent)}
-.lead{color:var(--muted);max-width:48ch;margin:0 auto 22px;font-size:16px}
-.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.chip{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:8px;padding:6px 14px;font-weight:600;font-size:13px;
-  color:var(--ink);
+:root {
+  --bg: #08080d;
+  --card: #12121a;
+  --card-hover: #1a1a24;
+  --border: #252533;
+  --text: #f0f0f5;
+  --muted: #8888a0;
+  --accent: #a78bfa;
+  --accent2: #67e8f9;
+  --success: #34d399;
+  --gradient: linear-gradient(135deg, #a78bfa 0%, #67e8f9 100%);
+  --radius: 16px;
 }
 
-.progress{
-  position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:5;
-  display:flex;align-items:center;gap:12px;
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:12px;padding:12px 16px;margin:0 0 32px;
-  backdrop-filter:blur(12px);
-}
-.bar-wrap{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
-.bar{height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .3s ease}
-.pt{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
-#reset{
-  background:transparent;border:1px solid var(--line);color:var(--muted);
-  font-size:12px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;
-  font-family:inherit;
-}
-#reset:hover{border-color:var(--accent);color:var(--accent)}
-
-h2{
-  font-family:"Space Grotesk",sans-serif;
-  font-size:18px;font-weight:600;margin:28px 0 14px;
-  display:flex;align-items:center;gap:10px;
-}
-h2::before{
-  content:'';width:3px;height:18px;background:var(--accent);border-radius:2px;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-ol.steps{list-style:none;padding:0;margin:0 0 20px;counter-reset:step}
-.step{margin-bottom:10px}
-.step input{position:absolute;opacity:0;pointer-events:none}
-.step label{
-  display:flex;gap:14px;align-items:flex-start;
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--radius);padding:14px 16px;cursor:pointer;
-  transition:border-color .2s,background .2s;
-}
-.step label:hover{border-color:rgba(34,197,94,.35)}
-.step input:checked + label{
-  border-color:rgba(34,197,94,.5);
-  background:rgba(34,197,94,.08);
-}
-.num{
-  counter-increment:step;
-  flex-shrink:0;width:26px;height:26px;border-radius:8px;
-  background:rgba(34,197,94,.15);color:var(--accent);
-  font-size:13px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-}
-.num::before{content:counter(step)}
-.step input:checked + label .num{
-  background:var(--accent);color:var(--accent-ink);
-}
-.step p{margin:0;font-size:15px}
-.step mark,.step .hl{
-  background:rgba(163,230,53,.18);color:var(--mark);
-  padding:1px 6px;border-radius:4px;font-weight:600;
+/* Background glow */
+.bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% -10%, rgba(167,139,250,.15), transparent),
+    radial-gradient(ellipse 50% 30% at 90% 90%, rgba(103,232,249,.08), transparent);
 }
 
-.done{
-  text-align:center;font-weight:600;color:var(--accent);
-  font-size:17px;margin:24px 0;opacity:0;transform:translateY(8px);
-  transition:opacity .4s,transform .4s;
+.wrap {
+  position: relative; z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
 }
-.done.show{opacity:1;transform:none}
 
-.note{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--radius);padding:16px 18px;margin:20px 0;
-  font-size:14.5px;color:var(--muted);
+/* Header */
+header { text-align: center; margin-bottom: 40px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(167,139,250,.12);
+  border: 1px solid rgba(167,139,250,.3);
+  color: var(--accent);
+  font-size: 12px; font-weight: 600;
+  padding: 6px 14px; border-radius: 100px;
+  margin-bottom: 20px;
+  letter-spacing: .3px;
 }
-.thanks{
-  text-align:center;margin:36px 0 20px;
-  background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);
-  border-radius:var(--radius);padding:24px 20px;
+h1 {
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+  margin-bottom: 12px;
 }
-.thanks h3{margin:0 0 8px;font-family:"Space Grotesk",sans-serif;font-size:20px}
-.thanks p{margin:0;color:var(--muted);font-size:14.5px}
+h1 em {
+  font-style: normal;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.lead {
+  color: var(--muted);
+  font-size: 15.5px;
+  max-width: 420px;
+  margin: 0 auto 24px;
+}
+.tags {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+}
+.tag {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 12.5px; font-weight: 600;
+  color: var(--text);
+}
 
-footer{
-  text-align:center;font-size:12.5px;color:var(--muted);
-  margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
+/* Progress */
+.progress {
+  position: sticky;
+  top: 12px;
+  z-index: 10;
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(18,18,26,.92);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin-bottom: 36px;
+  backdrop-filter: blur(16px);
 }
-.seller{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);
-  color:var(--accent);font-size:13px;font-weight:600;
-  padding:6px 14px;border-radius:999px;margin-bottom:12px;
+.track {
+  flex: 1; height: 5px;
+  background: var(--border);
+  border-radius: 99px; overflow: hidden;
+}
+.fill {
+  height: 100%; width: 0;
+  background: var(--gradient);
+  border-radius: 99px;
+  transition: width .35s ease;
+}
+.count {
+  font-size: 13px; font-weight: 600;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.reset {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px; font-weight: 600;
+  padding: 5px 11px; border-radius: 8px;
+  cursor: pointer; font-family: inherit;
+  transition: all .2s;
+}
+.reset:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Sections */
+.section { margin-bottom: 32px; }
+.section-title {
+  font-size: 15px; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--accent);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-title::before {
+  content: '';
+  width: 3px; height: 14px;
+  background: var(--gradient);
+  border-radius: 2px;
+}
+
+/* Steps */
+.steps { list-style: none; display: grid; gap: 10px; }
+.step { position: relative; }
+.step input {
+  position: absolute; opacity: 0; width: 0; height: 0;
+}
+.step label {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 16px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.step label:hover {
+  background: var(--card-hover);
+  border-color: rgba(167,139,250,.35);
+}
+.step input:checked + label {
+  border-color: rgba(167,139,250,.5);
+  background: rgba(167,139,250,.07);
+}
+.num {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 9px;
+  background: rgba(167,139,250,.12);
+  color: var(--accent);
+  font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.step input:checked + label .num {
+  background: var(--gradient);
+  color: #0a0a0f;
+}
+.step p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--text);
+  padding-top: 3px;
+}
+.step a { color: var(--accent2); text-decoration: none; font-weight: 500; }
+.step a:hover { text-decoration: underline; }
+.hl {
+  background: rgba(167,139,250,.15);
+  color: var(--accent);
+  padding: 1px 7px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 13.5px;
+}
+
+/* Done */
+.done {
+  text-align: center;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--success);
+  margin: 28px 0 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .4s ease;
+  pointer-events: none;
+}
+.done.show { opacity: 1; transform: none; pointer-events: auto; }
+
+/* Note */
+.note {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+/* Thanks */
+.thanks {
+  text-align: center;
+  background: linear-gradient(145deg, rgba(167,139,250,.1), rgba(103,232,249,.06));
+  border: 1px solid rgba(167,139,250,.25);
+  border-radius: 20px;
+  padding: 28px 24px;
+  margin-bottom: 32px;
+}
+.seller {
+  display: inline-block;
+  background: rgba(167,139,250,.15);
+  border: 1px solid rgba(167,139,250,.3);
+  color: var(--accent);
+  font-size: 13px; font-weight: 700;
+  padding: 5px 14px; border-radius: 100px;
+  margin-bottom: 12px;
+  letter-spacing: .3px;
+}
+.thanks h3 {
+  font-size: 20px; font-weight: 700;
+  margin-bottom: 6px;
+}
+.thanks p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 32px 16px 60px; }
+  h1 { font-size: 26px; }
 }
 </style>
 </head>
 <body>
-<main>
-  <div class="hero">
+<div class="bg"></div>
+
+<div class="wrap">
+  <header>
     <div class="badge">Бесплатный доступ</div>
-    <h1>Туториал на бесплатный доступ к<br><span>10+ ИИ</span></h1>
-    <p class="lead">Инструкция по активации пробного периода и работе с ИИ-моделями в Notion.</p>
-    <div class="chips">
-      <span class="chip">GPT</span>
-      <span class="chip">Claude</span>
-      <span class="chip">Gemini</span>
-      <span class="chip">+ другие</span>
+    <h1>Туториал на доступ<br>к <em>10+ ИИ</em></h1>
+    <p class="lead">Инструкция по активации пробного периода и работе с ИИ-моделями в Notion</p>
+    <div class="tags">
+      <span class="tag">GPT</span>
+      <span class="tag">Claude</span>
+      <span class="tag">Gemini</span>
+      <span class="tag">+ другие</span>
     </div>
-  </div>
+  </header>
 
   <div class="progress">
-    <div class="bar-wrap"><div class="bar" id="bar"></div></div>
-    <span class="pt" id="pt">0 / 13</span>
-    <button type="button" id="reset">Сброс</button>
+    <div class="track"><div class="fill" id="fill"></div></div>
+    <span class="count" id="count">0 / 13</span>
+    <button class="reset" id="reset" type="button">Сброс</button>
   </div>
 
-  <h2>Регистрация аккаунта</h2>
-  <ol class="steps">
-    <li class="step"><input type="checkbox" id="s1"><label for="s1"><span class="num"></span><div><p>Перейдите на <a href="https://www.notion.so" target="_blank" rel="noopener" style="color:var(--accent)">официальный сайт Notion</a>.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s2"><label for="s2"><span class="num"></span><div><p>Создайте аккаунт через электронную почту или доступный способ авторизации.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s3"><label for="s3"><span class="num"></span><div><p>Подтвердите электронную почту, если потребуется.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s4"><label for="s4"><span class="num"></span><div><p>При настройке рабочего пространства выберите <span class="hl">For work</span>.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s5"><label for="s5"><span class="num"></span><div><p>Завершите первоначальную настройку аккаунта.</p></div></label></li>
-  </ol>
+  <div class="section">
+    <div class="section-title">Регистрация аккаунта</div>
+    <ul class="steps">
+      <li class="step">
+        <input type="checkbox" id="s1">
+        <label for="s1">
+          <span class="num">1</span>
+          <p>Перейдите на <a href="https://www.notion.so" target="_blank" rel="noopener">официальный сайт Notion</a>.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s2">
+        <label for="s2">
+          <span class="num">2</span>
+          <p>Создайте аккаунт через электронную почту или другой способ авторизации.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s3">
+        <label for="s3">
+          <span class="num">3</span>
+          <p>Подтвердите электронную почту, если потребуется.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s4">
+        <label for="s4">
+          <span class="num">4</span>
+          <p>При настройке рабочего пространства выберите <span class="hl">For work</span>.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s5">
+        <label for="s5">
+          <span class="num">5</span>
+          <p>Завершите первоначальную настройку аккаунта.</p>
+        </label>
+      </li>
+    </ul>
+  </div>
 
-  <h2>Активация Notion Business Trial</h2>
-  <ol class="steps">
-    <li class="step"><input type="checkbox" id="s6"><label for="s6"><span class="num"></span><div><p>Перейдите на главный экран после регистрации.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s7"><label for="s7"><span class="num"></span><div><p>Нажмите на кнопку коробки в нижнем левом углу.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s8"><label for="s8"><span class="num"></span><div><p>В окне с выбором подписки выберите вариант <span class="hl">Free</span>.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s9"><label for="s9"><span class="num"></span><div><p>Найдите переключатель модели или параметр выбора модели, если он предусмотрен в вашем интерфейсе.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s10"><label for="s10"><span class="num"></span><div><p>Откройте список доступных вариантов. В зависимости от аккаунта могут отображаться модели GPT, Claude, Gemini и другие.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s11"><label for="s11"><span class="num"></span><div><p>Выберите нужную модель, если она доступна, либо оставьте автоматический выбор.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s12"><label for="s12"><span class="num"></span><div><p>Введите запрос и отправьте его.</p></div></label></li>
-    <li class="step"><input type="checkbox" id="s13"><label for="s13"><span class="num"></span><div><p>Если доступен режим настройки агента — откройте его параметры, задайте инструкции и сохраните изменения.</p></div></label></li>
-  </ol>
+  <div class="section">
+    <div class="section-title">Активация Notion Business Trial</div>
+    <ul class="steps">
+      <li class="step">
+        <input type="checkbox" id="s6">
+        <label for="s6">
+          <span class="num">6</span>
+          <p>Перейдите на главный экран после регистрации.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s7">
+        <label for="s7">
+          <span class="num">7</span>
+          <p>Нажмите на кнопку коробки в нижнем левом углу.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s8">
+        <label for="s8">
+          <span class="num">8</span>
+          <p>В окне с выбором подписки выберите вариант <span class="hl">Free</span>.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s9">
+        <label for="s9">
+          <span class="num">9</span>
+          <p>Найдите переключатель модели или параметр выбора модели, если он есть в интерфейсе.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s10">
+        <label for="s10">
+          <span class="num">10</span>
+          <p>Откройте список доступных вариантов. Могут отображаться GPT, Claude, Gemini и другие.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s11">
+        <label for="s11">
+          <span class="num">11</span>
+          <p>Выберите нужную модель или оставьте автоматический выбор.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s12">
+        <label for="s12">
+          <span class="num">12</span>
+          <p>Введите запрос и отправьте его.</p>
+        </label>
+      </li>
+      <li class="step">
+        <input type="checkbox" id="s13">
+        <label for="s13">
+          <span class="num">13</span>
+          <p>Если доступен режим агента — откройте параметры, задайте инструкции и сохраните.</p>
+        </label>
+      </li>
+    </ul>
+  </div>
 
-  <p class="done" id="done">Готово — можно пользоваться ИИ в Notion</p>
+  <p class="done" id="done">✓ Готово — можно пользоваться ИИ в Notion</p>
 
   <div class="note">
-    <p>После настройки можно использовать доступные ИИ-функции для работы с текстами, заметками, документами, идеями и другими задачами прямо в Notion. Доступные модели, функции и лимиты зависят от тарифа и конфигурации аккаунта.</p>
+    После настройки можно использовать доступные ИИ-функции для работы с текстами, заметками, документами и идеями прямо в Notion. Модели, функции и лимиты зависят от тарифа аккаунта.
   </div>
 
   <div class="thanks">
     <div class="seller">Gashihhhh</div>
     <h3>Спасибо за покупку!</h3>
-    <p>Пожалуйста, подтвердите получение товара после того, как убедитесь, что материал получен полностью.</p>
+    <p>Подтвердите получение товара, когда убедитесь, что всё работает.</p>
   </div>
 
-  <footer>Материал носит справочный характер и не связан с компанией Notion. · Продавец: Gashihhhh</footer>
-</main>
+  <footer>Справочный материал · Не связан с Notion · Продавец Gashihhhh</footer>
+</div>
 
 <script>
 (function(){
-  var boxes=[].slice.call(document.querySelectorAll('.step input'));
-  var bar=document.getElementById('bar'),pt=document.getElementById('pt'),done=document.getElementById('done');
-  var KEY='gashihhhh-free-ai-tutorial-v1';
-  function load(){try{var v=JSON.parse(localStorage.getItem(KEY)||'[]');boxes.forEach(function(b){b.checked=v.indexOf(b.id)>-1});}catch(e){}}
-  function save(){try{localStorage.setItem(KEY,JSON.stringify(boxes.filter(function(b){return b.checked}).map(function(b){return b.id})));}catch(e){}}
-  function render(){
-    var n=boxes.filter(function(b){return b.checked}).length;
-    bar.style.width=(n/boxes.length*100)+'%';
-    pt.textContent=n+' / '+boxes.length;
-    done.classList.toggle('show',n===boxes.length);
+  var boxes = [].slice.call(document.querySelectorAll('.step input'));
+  var fill = document.getElementById('fill');
+  var count = document.getElementById('count');
+  var done = document.getElementById('done');
+  var KEY = 'gashihhhh-ai-v2';
+
+  function load(){
+    try {
+      var v = JSON.parse(localStorage.getItem(KEY) || '[]');
+      boxes.forEach(function(b){ b.checked = v.indexOf(b.id) > -1; });
+    } catch(e){}
   }
-  boxes.forEach(function(b){b.addEventListener('change',function(){save();render();});});
-  document.getElementById('reset').addEventListener('click',function(){boxes.forEach(function(b){b.checked=false});save();render();});
-  load();render();
+  function save(){
+    try {
+      localStorage.setItem(KEY, JSON.stringify(
+        boxes.filter(function(b){ return b.checked; }).map(function(b){ return b.id; })
+      ));
+    } catch(e){}
+  }
+  function render(){
+    var n = boxes.filter(function(b){ return b.checked; }).length;
+    fill.style.width = (n / boxes.length * 100) + '%';
+    count.textContent = n + ' / ' + boxes.length;
+    done.classList.toggle('show', n === boxes.length);
+  }
+
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){ save(); render(); });
+  });
+  document.getElementById('reset').addEventListener('click', function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    save(); render();
+  });
+
+  load(); render();
 })();
 </script>
 </body>
